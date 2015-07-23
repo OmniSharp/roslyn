@@ -79,7 +79,7 @@ namespace Microsoft.CodeAnalysis.Shared.Utilities
 
                 if (partCount == 0)
                 {
-                    return Array.Empty<TextChunk>();
+                    return new TextChunk[0];
                 }
 
                 var result = new TextChunk[partCount];
@@ -169,7 +169,7 @@ namespace Microsoft.CodeAnalysis.Shared.Utilities
             if (pattern.IndexOf('.') < 0)
             {
                 // PERF: Avoid string.Split allocations when the pattern doesn't contain a dot.
-                _dotSeparatedSegments = pattern.Length > 0 ? new Segment[1] { _fullPatternSegment } : Array.Empty<Segment>();
+                _dotSeparatedSegments = pattern.Length > 0 ? new Segment[1] { _fullPatternSegment } : new Segment[0];
             }
             else
             {
